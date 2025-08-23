@@ -1,26 +1,165 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* Enable `.dark` class as a variant (Tailwind v4) */
+@custom-variant dark (&:is(.dark *));
 
+/* Map Tailwind tokens to CSS custom properties */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-destructive: var(--destructive);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ================================
+   FROMAGE THEME — LIGHT MODE
+   Warm cream + burgundy + chocolate, gold accents
+   ================================= */
+:root {
+  --radius: 0.625rem;
+
+  /* Surfaces & text */
+  --background: oklch(0.98 0.02 95);          /* cream / parchment */
+  --foreground: oklch(0.22 0.06 55);          /* deep chocolate */
+
+  --card: oklch(0.99 0.01 95);
+  --card-foreground: oklch(0.22 0.06 55);
+
+  --popover: oklch(0.99 0.01 95);
+  --popover-foreground: oklch(0.22 0.06 55);
+
+  /* Brand */
+  --primary: oklch(0.35 0.17 20);             /* burgundy / wine */
+  --primary-foreground: oklch(0.98 0.01 95);  /* cream */
+
+  --secondary: oklch(0.94 0.03 95);           /* linen */
+  --secondary-foreground: oklch(0.22 0.06 55);
+
+  --muted: oklch(0.96 0.02 95);               /* soft paper */
+  --muted-foreground: oklch(0.46 0.04 60);    /* warm gray-brown */
+
+  --accent: oklch(0.78 0.12 85);              /* soft gold */
+  --accent-foreground: oklch(0.22 0.06 55);
+
+  --destructive: oklch(0.62 0.23 25);         /* tomato-red */
+
+  /* UI affordances */
+  --border: oklch(0.90 0.02 95);              /* warm light border */
+  --input: oklch(0.92 0.02 95);
+  --ring: oklch(0.55 0.10 20);                /* subtle burgundy ring */
+
+  /* Data viz palette (wine-forward) */
+  --chart-1: oklch(0.45 0.18 20);             /* burgundy */
+  --chart-2: oklch(0.65 0.10 110);            /* olive */
+  --chart-3: oklch(0.56 0.07 250);            /* french blue */
+  --chart-4: oklch(0.78 0.12 85);             /* gold */
+  --chart-5: oklch(0.66 0.13 10);             /* rosé */
+
+  /* Sidebar */
+  --sidebar: oklch(0.985 0.01 95);
+  --sidebar-foreground: oklch(0.22 0.06 55);
+  --sidebar-primary: oklch(0.35 0.17 20);
+  --sidebar-primary-foreground: oklch(0.98 0.01 95);
+  --sidebar-accent: oklch(0.96 0.02 95);
+  --sidebar-accent-foreground: oklch(0.22 0.06 55);
+  --sidebar-border: oklch(0.90 0.02 95);
+  --sidebar-ring: oklch(0.55 0.10 20);
+}
+
+/* ================================
+   FROMAGE THEME — DARK MODE
+   Cellar brown + glowing burgundy + muted gold
+   ================================= */
+.dark {
+  --background: oklch(0.14 0.02 40);          /* near-black warm brown */
+  --foreground: oklch(0.98 0.01 95);          /* cream text */
+
+  --card: oklch(0.17 0.03 40);
+  --card-foreground: oklch(0.98 0.01 95);
+
+  --popover: oklch(0.17 0.03 40);
+  --popover-foreground: oklch(0.98 0.01 95);
+
+  --primary: oklch(0.76 0.12 20);             /* lighter wine for contrast */
+  --primary-foreground: oklch(0.16 0.03 40);  /* dark surface text */
+
+  --secondary: oklch(0.25 0.02 60);           /* muted cocoa */
+  --secondary-foreground: oklch(0.98 0.01 95);
+
+  --muted: oklch(0.22 0.02 60);
+  --muted-foreground: oklch(0.73 0.06 60);
+
+  --accent: oklch(0.70 0.10 85);              /* muted gold */
+  --accent-foreground: oklch(0.16 0.03 40);
+
+  --destructive: oklch(0.58 0.18 25);         /* deep red */
+
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: oklch(0.60 0.15 20);                /* burgundy glow */
+
+  --chart-1: oklch(0.62 0.19 20);             /* wine */
+  --chart-2: oklch(0.63 0.10 110);            /* olive */
+  --chart-3: oklch(0.66 0.08 250);            /* blue */
+  --chart-4: oklch(0.72 0.11 85);             /* gold */
+  --chart-5: oklch(0.60 0.12 10);             /* rosé */
+
+  --sidebar: oklch(0.17 0.03 40);
+  --sidebar-foreground: oklch(0.98 0.01 95);
+  --sidebar-primary: oklch(0.62 0.19 20);
+  --sidebar-primary-foreground: oklch(0.16 0.03 40);
+  --sidebar-accent: oklch(0.22 0.02 60);
+  --sidebar-accent-foreground: oklch(0.98 0.01 95);
+  --sidebar-border: oklch(1 0 0 / 12%);
+  --sidebar-ring: oklch(0.60 0.15 20);
+}
+
+/* Base layer mappings so Tailwind utilities pick up the tokens */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply bg-background text-foreground;
+  }
 }
