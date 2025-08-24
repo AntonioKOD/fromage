@@ -3,6 +3,8 @@ import { Geist, Geist_Mono, Playfair_Display, Lato } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import NavBar from "@/components/navbar";
+import Dialog03 from "@/components/ui/dialog-1";
+import { Component } from "@/components/ui/footer-taped-design";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -43,6 +45,7 @@ export default function RootLayout({
       <body
         className={`${playfair.variable} ${lato.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Dialog03/>
         <NavBar/>
         <ThemeProvider
         attribute='class'
@@ -50,6 +53,7 @@ export default function RootLayout({
         disableTransitionOnChange>
         {children}
         </ThemeProvider>
+        <Component/>
       </body>
     </html>
   );

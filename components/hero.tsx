@@ -23,7 +23,9 @@ export default function Hero() {
                 title={mediaContent.video.title}
                 date={mediaContent.video.date}
                 scrollToExpand={mediaContent.video.scrolltoExpand}
-            />
+            >
+                <MediaContent mediaType="video" />
+            </ScrollExpandMedia>
         }
         </>
     )
@@ -65,7 +67,9 @@ const mediaContent: MediaContentCollection = {
 }
 
 const MediaContent = ({mediaType}: {mediaType: 'video' | 'image'}) => {
-    const currentMedia = mediaContent[mediaType];
+   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+   const currentMedia = mediaContent[mediaType];
+
 
     return (
         <div>

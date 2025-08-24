@@ -1,15 +1,15 @@
 'use client'
 
-import Image from "next/image"
+
 import { useState } from "react"
-import fromage_1 from '@/public/fromage_1.png'
+
 import {
     Navbar,
     NavBody, 
     NavItems,
     MobileNav,
     NavbarLogo,
-    NavbarButton,
+    
     MobileNavHeader,
     MobileNavToggle,
     MobileNavMenu,
@@ -51,7 +51,7 @@ export default function NavBar() {
                 <MobileNav>
                     <MobileNavHeader>
                         <NavbarLogo/>
-                        <MobileNavToggle isOpen={isMobileMenuOpen} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
+                        <MobileNavToggle isOpen={isMobileMenuOpen} onClickAction={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
 
                     </MobileNavHeader>
                     <MobileNavMenu isOpen={isMobileMenuOpen} onClose={()=> setIsMobileMenuOpen(false)} className="bg-background">
