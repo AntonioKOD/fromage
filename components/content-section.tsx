@@ -28,7 +28,7 @@ export default function ContentSection() {
           </p>
 
           <div className="flex gap-3">
-            <a href="/events" className="rounded-xl border border-border px-4 py-2 hover:bg-muted">
+            <a href="/wine-tasting" className="rounded-xl border border-border px-4 py-2 hover:bg-muted">
               Wine Tastings & Events
             </a>
             <a href="/reservations" className="rounded-xl bg-primary px-4 py-2 text-primary-foreground hover:opacity-90">

@@ -15,14 +15,13 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="my-8 px-4 max-w-5xl text-base-content mx-auto">
-      <div className="relative border-4 rounded-3xl max-w-5xl mx-auto px-4 py-10">
+    <footer className="my-4 md:my-8 px-4 max-w-5xl text-base-content mx-auto">
+      <div className="relative border-4 rounded-3xl max-w-5xl mx-auto px-4 py-3 md:py-10">
         <div className="hidden md:block absolute -top-4 -left-8 w-[80px] h-[36px] scale-75">{tape}</div>
         <div className="hidden md:block absolute -top-4 -right-8 rotate-90 w-[80px] h-[36px] scale-75">{tape}</div>
 
-        <div className="flex flex-col md:flex-row justify-between items-start gap-8">
-          {/* Left side - Brand info */}
-          <div className="flex flex-col gap-4">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-2 md:gap-8">
+          <div className="flex flex-col gap-1 md:gap-4">
             <Link
               href="/"
               className="flex flex-row gap-1 items-center justify-start text-2xl font-display font-medium text-sans text-foreground"
@@ -34,15 +33,13 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Center - Wine tips with white space */}
-          <div className="flex-1 flex justify-center items-center min-h-[200px] px-8">
+          <div className="hidden md:flex justify-center items-center px-8">
             <FooterWineTip />
           </div>
 
-          {/* Right side - Pages section */}
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-1 md:gap-2">
             <h4 className="uppercase font-display text-md text-neutral/50 font-semibold">Pages</h4>
-            <div className="flex flex-col gap-2 text-sm text-neutral">
+            <div className="flex flex-col gap-1 md:gap-2 text-sm text-neutral">
               <Link className="text-neutral/50 whitespace-nowrap font-medium" href="/reservations">
                 Reservations
               </Link>
@@ -62,8 +59,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom - Copyright */}
-        <div className="mt-8 pt-4 border-t border-neutral/20 text-center">
+        <div className="mt-2 md:mt-8 pt-4 border-t border-neutral/20 text-center">
           <p className="text-sm text-neutral/50">
             {"©"}
             {currentYear} Fromage. All rights reserved. Built by{" "}
